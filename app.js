@@ -10,7 +10,7 @@ require("dotenv").config();
 // const bcrypt = require("bcrypt");
 // const saltRounds =10;
 // const md5=require("md5");
-
+const fs = require("fs");
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -26,8 +26,7 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate=require("mongoose-findorcreate");
 const app = express();
 
-//exposing key for testing not a real api
-console.log(process.env.API_KEY);
+
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -47,7 +46,14 @@ app.use(passport.session());
 
 
 //need to replace password with my phy5prtAdmin password for now putting in a file excluded from git
-mongoose.connect("mongodb+srv://phy5prtAdmin:<password>@cluster0-su305.mongodb.net/test?retryWrites=true&w=majority/userDb", {useNewUrlParser:true});
+var password;
+fs.readFile("ignoreMePasswords.txt", function(err, buf) {
+
+  password=buf.toString().trim();
+  mongoose.connect("mongodb+srv://phy5prtAdmin:"+password+"@cluster0-su305.mongodb.net/secretsDB", {useNewUrlParser:true});
+  //mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
+
+});
 mongoose.set("useCreateIndex", true);
 
 
