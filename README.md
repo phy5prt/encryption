@@ -1,6 +1,6 @@
 # encryption
-Website you register to then anonymously post secrets readable by all users.
-Website had several iterations with increasing levels of encryption.
+The secrets website allows you to register and then anonymously post secrets readable by all users.
+Whilst making the website I went through several iterations with increasing levels of encryption in order to learn them.
 
 
 I made the website using increasingly effective forms of encryption. 
