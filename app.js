@@ -46,14 +46,16 @@ app.use(passport.session());
 
 
 //need to replace password with my phy5prtAdmin password for now putting in a file excluded from git
-var password;
-fs.readFile("ignoreMePasswords.txt", function(err, buf) {
+// var password;
+// fs.readFile("ignoreMePasswords.txt", function(err, buf) {
+//
+//   password=buf.toString().trim();
+//   mongoose.connect("mongodb+srv://phy5prtAdmin:"+password+"@cluster0-su305.mongodb.net/secretsDB", {useNewUrlParser:true});
+//   //mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
+//
+// });
 
-  password=buf.toString().trim();
-  mongoose.connect("mongodb+srv://phy5prtAdmin:"+password+"@cluster0-su305.mongodb.net/secretsDB", {useNewUrlParser:true});
-  //mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
-
-});
+mongoose.connect("mongodb+srv://phy5prtAdmin:"+process.env.PASSWORD_ATLASDB+"@cluster0-su305.mongodb.net/secretsDB", {useNewUrlParser:true});
 mongoose.set("useCreateIndex", true);
 
 
@@ -249,5 +251,5 @@ if(err){
 
 
 app.listen(process.env.PORT|| 3000,function(){
-  console.log("Server started on port 3000.");
+//  console.log("Server started on port 3000.");
 });
