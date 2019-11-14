@@ -2,19 +2,13 @@
   "name": "secrets",
   "version": "1.0.0",
   "description": "",
-  "version": "1.0.0",
-  "engines": {
-    "node": "10.16.0"
-  },
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "engine":{
-    "node": "10.16.0"
-  },
+
   "dependencies": {
     "bcrypt": "^3.0.5",
     "body-parser": "^1.18.3",
@@ -31,5 +25,8 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1"
+  },
+  "engine": {
+    "node": "10.16.0"
   }
 }
